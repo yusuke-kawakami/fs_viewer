@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.env
+
+# Claude Code
+.claude/
+
+# ローカル起動用
+起動.bat
+debug_pdf.py
+
+# テスト用PDF（個人情報含む可能性）
+*.pdf
