@@ -22,20 +22,20 @@ def extract_bs(
         if value is None:
             continue
 
-        # cutoff=0.85: "有形固定資産"(0.80)が"固定資産"に誤マッチしないよう厳格化
-        if matches(label_norm, CURRENT_ASSETS_KEYWORDS, cutoff=0.85) and data.current_assets is None:
+        # cutoff=0.90: "有形固定資産合計"(類似度0.857)が"固定資産合計"に誤マッチしないよう厳格化
+        if matches(label_norm, CURRENT_ASSETS_KEYWORDS, cutoff=0.90) and data.current_assets is None:
             data.current_assets = value
-        elif matches(label_norm, FIXED_ASSETS_KEYWORDS, cutoff=0.85) and data.fixed_assets is None:
+        elif matches(label_norm, FIXED_ASSETS_KEYWORDS, cutoff=0.90) and data.fixed_assets is None:
             data.fixed_assets = value
-        elif matches(label_norm, TOTAL_ASSETS_KEYWORDS, cutoff=0.85) and data.total_assets is None:
+        elif matches(label_norm, TOTAL_ASSETS_KEYWORDS, cutoff=0.90) and data.total_assets is None:
             data.total_assets = value
-        elif matches(label_norm, CURRENT_LIAB_KEYWORDS, cutoff=0.85) and data.current_liabilities is None:
+        elif matches(label_norm, CURRENT_LIAB_KEYWORDS, cutoff=0.90) and data.current_liabilities is None:
             data.current_liabilities = value
-        elif matches(label_norm, FIXED_LIAB_KEYWORDS, cutoff=0.85) and data.fixed_liabilities is None:
+        elif matches(label_norm, FIXED_LIAB_KEYWORDS, cutoff=0.90) and data.fixed_liabilities is None:
             data.fixed_liabilities = value
-        elif matches(label_norm, TOTAL_LIAB_KEYWORDS, cutoff=0.85) and data.total_liabilities is None:
+        elif matches(label_norm, TOTAL_LIAB_KEYWORDS, cutoff=0.90) and data.total_liabilities is None:
             data.total_liabilities = value
-        elif matches(label_norm, TOTAL_EQUITY_KEYWORDS, cutoff=0.85) and data.total_equity is None:
+        elif matches(label_norm, TOTAL_EQUITY_KEYWORDS, cutoff=0.90) and data.total_equity is None:
             data.total_equity = value
 
     data.fill_missing()

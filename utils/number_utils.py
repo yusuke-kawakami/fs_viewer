@@ -85,7 +85,10 @@ def format_amount(value: Optional[float], unit: str = "百万円") -> str:
 
 
 def normalize_text(text: str) -> str:
-    """全角・半角正規化 + 前後空白除去"""
+    """全角・半角正規化 + 空白除去（中間スペースも除去）"""
     if not text:
         return ""
-    return unicodedata.normalize("NFKC", text).strip()
+    s = unicodedata.normalize("NFKC", text).strip()
+    # 「流動資産 合計」→「流動資産合計」のように中間スペースを除去
+    s = re.sub(r"\s+", "", s)
+    return s

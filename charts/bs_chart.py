@@ -40,14 +40,14 @@ def build_bs_chart(data: BSData) -> go.Figure:
     # ===== 左棒: 資産（下=固定資産、上=流動資産） =====
     if other_assets > 0.001:
         fig.add_trace(go.Bar(
-            name="その他資産",
+            name="無形・投資資産",
             x=["資産"],
             y=[other_assets],
             marker_color="#7FB3F5",
             text=[f"{other_assets:.1f}"],
             textposition="inside",
             textfont=dict(color="white", size=13),
-            hovertemplate="その他資産: %{y:.1f}" + scale_label + "<extra></extra>",
+            hovertemplate="無形・投資資産（のれん等）: %{y:.1f}" + scale_label + "<extra></extra>",
         ))
     fig.add_trace(go.Bar(
         name="固定資産",
